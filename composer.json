@@ -1,5 +1,5 @@
 {
-    "name": "customplugins/newcity-wp-wysiwyg",
+    "name": "newcity/newcity-wp-wysiwyg",
     "type": "wordpress-plugin",
     "require": {
         "composer/installers": "v1.3.0",
