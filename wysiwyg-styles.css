@@ -1,0 +1,13 @@
+.mce-content-body p.intro {
+    font-weight: bold;
+}
+
+.mce-content-body a.large-arrow {
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: -1em;
+}
+
+.mce-content-body a.large-arrow:after {
+    content: '\2192';
+}
