@@ -34,7 +34,7 @@ class NewCityToolbars {
 	 *
 	 * @var array
 	 */
-	private $styles_formats;
+	private $style_formats;
 
 
 	public function __construct() {
@@ -55,7 +55,7 @@ class NewCityToolbars {
 
 	private function get_custom_styles() {
 		$this->stylesheet = plugins_url( 'wysiwyg-styles.css', __FILE__ );
-		$this->styles_formats = array(
+		$this->style_formats = array(
 			array(
 				'title' => 'Intro Paragraph',
 				'block' => 'p',
