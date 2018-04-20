@@ -88,8 +88,7 @@ class NewCityToolbars {
 	}
 
 	public function add_editor_styles() {
-
-		add_editor_style(  );
+		add_editor_style( $this->stylesheet );
 	}
 
 	public function modify_tiny_mce( $settings ) {
