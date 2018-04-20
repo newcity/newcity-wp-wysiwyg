@@ -72,13 +72,13 @@ class NewCityToolbars {
 		);
 
 		// check for overrides in the theme
-		$config_fn = get_template_directory() . '/' . $this->theme_config_file;
+		$config_fn = get_stylesheet_directory() . '/' . $this->theme_config_file;
 		if (file_exists($config_fn)) {
 			$contents = file_get_contents($config_fn);
 			$config = json_decode($contents, TRUE);
 			if ($config) {
 				if (isset($config['css'])) {
-					$this->stylesheet = get_template_directory() . '/' . $config['css'];
+					$this->stylesheet = get_stylesheet_directory() . '/' . $config['css'];
 				}
 				if (isset($config['style_formats'])) {
 					$this->style_formats = $config['style_formats'];
