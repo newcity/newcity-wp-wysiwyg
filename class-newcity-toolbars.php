@@ -95,7 +95,6 @@ class NewCityToolbars {
 		// Set dropdown formatting options in WYSIWYG Editor
 		// {Display Name}={html tag}
 		$settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;';
-
 		$settings['style_formats'] = json_encode( $this->style_formats );
 
 		return $settings;

@@ -10,7 +10,7 @@ Your theme may override some settings added by this plugin using configuration f
 ```json
 {
     "css": "css/wysiwyg.css",
-    "styles_format": [
+    "style_formats": [
         {
             "title": "Button link",
             "selector": "a",
