@@ -24,8 +24,4 @@
 
 require_once( dirname( __FILE__ ) . '/class-newcity-toolbars.php');
 
-function newcity_wysiwyg_run() {
-	$brpa_filters = new NewCityToolbars();
-}
-
-newcity_wysiwyg_run();
+new NewCityToolbars();

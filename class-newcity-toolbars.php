@@ -45,8 +45,7 @@ class NewCityToolbars {
 		add_action( 'admin_init', array( $this, 'add_editor_styles') );
 		add_filter( 'tiny_mce_before_init', array( $this, 'modify_tiny_mce' ) );
 
-
-		add_filter( 'acf/fields/wysiwyg/toolbars', array( $this, 'my_toolbars' ) );
+		add_filter( 'acf/fields/wysiwyg/toolbars', array( $this, 'toolbar_sets' ) );
 
 		add_filter( 'mce_buttons', array( $this, 'default_mce_toolbar' ) );
 		add_filter( 'mce_buttons', array( $this, 'add_style_select_buttons' ) );
@@ -98,6 +97,28 @@ class NewCityToolbars {
 		$settings['style_formats'] = json_encode( $this->style_formats );
 
 		return $settings;
+	}
+
+	public function toolbar_sets( $toolbars ) {
+		// Add new WYSIWYG toolbar sets
+		$toolbars['Minimum'] = array();
+		$toolbars['Minimum'][1] = array( 'bold', 'italic', '|', 'removeformat' );
+		$toolbars['Minimum with Links'] = array();
+		$toolbars['Minimum with Links'][1] = array( 'bold', 'italic', 'link', 'unlink', '|', 'removeformat' );
+		$toolbars['Minimum with Lists'] = array();
+		$toolbars['Minimum with Lists'][1] = array( 'bold', 'italic', 'link', 'unlink', '|', 'bullist', 'numlist', '|', 'removeformat' );
+		$toolbars['Simple'] = array();
+		$toolbars['Simple'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), '|', 'removeformat' );
+		$toolbars['Simple with Headers'] = array();
+		$toolbars['Simple with Headers'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), 'formatselect', 'styleselect', '|', 'removeformat' );
+		// Edit the "Full" toolbar and remove 'code'
+		// if (($key = array_search('code', $toolbars['Full' ][2])) !== false) {
+		//     unset($toolbars['Full' ][2][$key]);
+		// }
+		// remove the 'Basic' toolbar completely
+		unset( $toolbars['Basic'] );
+		// return $toolbars - IMPORTANT!
+		return $toolbars;
 	}
 
 	public function add_style_select_buttons( $buttons ) {
