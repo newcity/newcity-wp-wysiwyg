@@ -78,7 +78,7 @@ class NewCityToolbars {
 			$config = json_decode($contents, TRUE);
 			if ($config) {
 				if (isset($config['css'])) {
-					$this->stylesheet = get_stylesheet_directory() . '/' . $config['css'];
+					$this->stylesheet = $config['css'];
 				}
 				if (isset($config['style_formats'])) {
 					$this->style_formats = $config['style_formats'];
