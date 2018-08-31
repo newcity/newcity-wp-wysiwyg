@@ -20,8 +20,6 @@ class NewCityToolbars {
 	}
 
 	public function modify_tiny_mce( $settings ) {
-		// Set dropdown formatting options in WYSIWYG Editor
-		// {Display Name}={html tag}
 		$settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;';
 
 		if (get_option('newcity_wysiwyg_toolbar_format_dropdown')) {
@@ -58,23 +56,25 @@ class NewCityToolbars {
 	}
 
 	private function custom_styles( $init_array ) {
-		$style_formats = array(
-			array(
-				'title' => 'Intro Paragraph',
-				'block' => 'p',
-				'classes' => 'intro',
-				'wrapper' => false,
-			),
-			array(
-				'title' => 'Featured Link',
-				'selector' => 'a',
-				'block' => 'a',
-				'classes' => 'large-arrow',
-				'wrapper' => false,
-			),
-		);
+		if (get_option('newcity_wysiwyg_toolbar_format_dropdown')) {
+			$style_formats = array(
+				array(
+					'title' => 'Intro Paragraph',
+					'block' => 'p',
+					'classes' => 'intro',
+					'wrapper' => false,
+				),
+				array(
+					'title' => 'Featured Link',
+					'selector' => 'a',
+					'block' => 'a',
+					'classes' => 'large-arrow',
+					'wrapper' => false,
+				),
+			);
 
-		$init_array['style_formats'] = json_encode( $style_formats );
+			$init_array['style_formats'] = json_encode( $style_formats );
+		}
 		return $init_array;
 	}
 
@@ -84,8 +84,6 @@ class NewCityToolbars {
 	}
 
 	function my_toolbars( $toolbars ) {
-		// Add new WYSIWYG toolbar sets
-
 
 		$toolbars['Minimum'] = array();
 		$toolbars['Minimum'][1] = array( 'bold', 'italic', '|', 'removeformat' );
@@ -100,22 +98,18 @@ class NewCityToolbars {
 		$toolbars['Simple'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), '|', 'removeformat' );
 
 		$toolbars['Simple with Headers'] = array();
-		$toolbars['Simple with Headers'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), 'formatselect', 'styleselect', '|', 'removeformat' );
+		$toolbars['Simple with Headers'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', 'formatselect', '|', 'removeformat' );
+		if (get_option('newcity_wysiwyg_toolbar_format_dropdown')) {
+			array_splice($toolbars['Simple with Headers'][1], 6, 0, 'styleselect');
+		}
 
-		// Edit the "Full" toolbar and remove 'code'
-		// if (($key = array_search('code', $toolbars['Full' ][2])) !== false) {
-		//     unset($toolbars['Full' ][2][$key]);
-		// }
-
-		// remove the 'Basic' toolbar completely
 		unset( $toolbars['Basic'] );
 
-		// return $toolbars - IMPORTANT!
 		return $toolbars;
 	}
 
 	public function default_mce_toolbar( $buttons ) {
-		$buttons = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), 'formatselect', '|', 'removeformat' );
+		$buttons = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', 'formatselect', '|', 'removeformat' );
 		return $buttons;
 	}
 	public function extra_mce_toolbar( $buttons ) {

@@ -1,5 +1,8 @@
 # Release Notes for NewCity Shortcodes plugin
 
+## 0.2.1 -- Aug. 31, 2018
+New code was changing format menu contents, but not removing it.
+
 ## 0.2.0-dev -- Aug. 31, 2018
 Breaking change: "Format" menu now only appears if `newcity_wysiwyg_toolbar_format_dropdown` option exists and is truthy
 
