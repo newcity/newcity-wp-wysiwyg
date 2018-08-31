@@ -10,7 +10,7 @@
  * Plugin Name:       NewCity Custom WYSIWYG tools
  * * Plugin URI: https://github.com/newcity/newcity-wp-wysiwyg
  * Description:       Custom toolbars and modifications to TinyMCE
- * Version:           0.1.2-dev
+ * Version:           0.2.0-dev
  * Author:            NewCity  <geeks@insidenewcity.com>
  * Author URI:        http://insidenewcity.com
  * License:           NONE

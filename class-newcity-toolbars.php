@@ -24,24 +24,27 @@ class NewCityToolbars {
 		// {Display Name}={html tag}
 		$settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;';
 
+		if (get_option('newcity_wysiwyg_toolbar_format_dropdown')) {
 
-		$style_formats = array(
-			array(
-				'title' => 'Intro Paragraph',
-				'block' => 'p',
-				'classes' => 'intro',
-				'wrapper' => false
-			),
-			array(
-				'title' => 'Featured Link',
-				'inline' => 'a',
-				'classes' => 'large-arrow',
-				'wrapper' => true,
-				'attributes' => array( 'href' => '#' ),
-			),
-		);
-
-		$settings['style_formats'] = json_encode( $style_formats );
+			$style_formats = array(
+				array(
+					'title' => 'Intro Paragraph',
+					'block' => 'p',
+					'classes' => 'intro',
+					'wrapper' => false
+				),
+				array(
+					'title' => 'Featured Link',
+					'inline' => 'a',
+					'classes' => 'large-arrow',
+					'wrapper' => true,
+					'attributes' => array( 'href' => '#' ),
+				),
+				
+			);
+			
+			$settings['style_formats'] = json_encode( $style_formats );
+		}
 
 		return $settings;
 	}
