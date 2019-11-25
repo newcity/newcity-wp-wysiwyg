@@ -86,19 +86,19 @@ class NewCityToolbars {
 	function my_toolbars( $toolbars ) {
 
 		$toolbars['Minimum'] = array();
-		$toolbars['Minimum'][1] = array( 'bold', 'italic', '|', 'removeformat' );
+		$toolbars['Minimum'][1] = array( 'bold', 'italic', '|', 'removeformat', '|', 'fullscreen' );
 
 		$toolbars['Minimum with Links'] = array();
-		$toolbars['Minimum with Links'][1] = array( 'bold', 'italic', 'link', 'unlink', '|', 'removeformat' );
+		$toolbars['Minimum with Links'][1] = array( 'bold', 'italic', 'link', 'unlink', '|', 'removeformat', '|', 'fullscreen' );
 
 		$toolbars['Minimum with Lists'] = array();
-		$toolbars['Minimum with Lists'][1] = array( 'bold', 'italic', 'link', 'unlink', '|', 'bullist', 'numlist', '|', 'removeformat' );
+		$toolbars['Minimum with Lists'][1] = array( 'bold', 'italic', 'link', 'unlink', '|', 'bullist', 'numlist', '|', 'removeformat', '|', 'fullscreen' );
 
 		$toolbars['Simple'] = array();
-		$toolbars['Simple'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), '|', 'removeformat' );
+		$toolbars['Simple'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', $this->blockquote_name(), '|', 'removeformat', '|', 'fullscreen' );
 
 		$toolbars['Simple with Headers'] = array();
-		$toolbars['Simple with Headers'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', 'formatselect', '|', 'removeformat' );
+		$toolbars['Simple with Headers'][1] = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', 'formatselect', '|', 'removeformat', '|', 'fullscreen' );
 		if (get_option('newcity_wysiwyg_toolbar_format_dropdown')) {
 			array_splice($toolbars['Simple with Headers'][1], 6, 0, 'styleselect');
 		}
@@ -109,7 +109,7 @@ class NewCityToolbars {
 	}
 
 	public function default_mce_toolbar( $buttons ) {
-		$buttons = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', 'formatselect', '|', 'removeformat' );
+		$buttons = array( 'bold', 'italic', 'link', 'unlink', 'bullist', 'numlist', 'formatselect', '|', 'removeformat', '|', 'fullscreen' );
 		return $buttons;
 	}
 	public function extra_mce_toolbar( $buttons ) {
