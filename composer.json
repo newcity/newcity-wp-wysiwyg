@@ -2,7 +2,7 @@
     "name": "newcity/newcity-wp-wysiwyg",
     "type": "wordpress-plugin",
     "require": {
-        "composer/installers": "v1.3.0",
+        "composer/installers": "^1.3.0",
         "php": ">=5.4.0"
     }
 }
