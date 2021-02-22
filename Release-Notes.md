@@ -1,5 +1,11 @@
 # Release Notes for NewCity Shortcodes plugin
 
+## 0.2.4 -- February 22, 2020
+Minor change to composer.json to allow updated version of `composer/installers`
+
+## 0.2.3 -- November 25, 2019
+Add fullscreen button to wysiwyg toolbars
+
 ## 0.2.1 -- Aug. 31, 2018
 New code was changing format menu contents, but not removing it.
 
