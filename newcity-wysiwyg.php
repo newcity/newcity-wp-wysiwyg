@@ -28,4 +28,8 @@ function newcity_wysiwyg_run() {
 	$brpa_filters = new NewCityToolbars();
 }
 
-newcity_wysiwyg_run();
+add_action('plugins_loaded', 'init_newcity_wysiwyg');
+
+function init_newcity_wysiwyg() {
+    newcity_wysiwyg_run();
+}

@@ -12,6 +12,7 @@
 
 class NewCityToolbars {
 
+	
 	public function __construct() {
 		add_editor_style( plugins_url( 'wysiwyg-styles.css', __FILE__ ) );
 		add_filter( 'tiny_mce_before_init', array( $this, 'modify_tiny_mce' ) );
@@ -113,7 +114,17 @@ class NewCityToolbars {
 		return $buttons;
 	}
 	public function extra_mce_toolbar( $buttons ) {
-		$buttons = array( 'charmap', 'pastetext', 'undo', 'redo' );
+		$post_id = get_the_ID();
+		$elementor_mode = get_post_meta($post_id, '_elementor_edit_mode');
+		if (empty($elementor_mode) || !in_array('builder', $elementor_mode)) {
+			$buttons = [
+				// "removeformat",
+				"charmap",
+				"pastetext",
+				"undo",
+				"redo",
+			];
+		}
 		return $buttons;
 	}
 
